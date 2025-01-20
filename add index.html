@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dictionary</title>
+  <style>
+    /* Color definitions */
+    :root {
+      --primary: #000957; /* Dark blue */
+      --secondary: #344CB7; /* Medium blue */
+      --white: #e1f0f8; /* White */
+      --gray: #577BC1; /* Light blue */
+      --highlight: #FFEB00; /* Yellow */
+    }
+
+    /* Dictionary Text and Logo Styling */
+    .dictionary-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex; /* Align image and text horizontally */
+      align-items: center; /* Vertically center the image and text */
+      font-family: 'Poppins', sans-serif;
+      color: var(--primary);
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .logo-image {
+      width: 50px; /* Adjust size */
+      height: 50px; /* Keep proportions */
+      margin-right: 10px; /* Space between image and text */
+      vertical-align: middle; /* Align image to text */
+    }
+
+    /* Form group */
+    .form__group {
+      position: relative;
+      padding: 15px 0 0;
+      margin-top: 80px; /* Leave space for the Dictionary logo */
+      width: 70%; /* Increase width to make it longer */
+      margin-bottom: 20px;
+    }
+
+    /* Form field */
+    .form__field {
+      font-family: inherit;
+      width: 100%; /* Ensure the input field fills the entire width of the form group */
+      border: 0;
+      border-bottom: 2px solid var(--gray);
+      outline: 0;
+      font-size: 1.3rem;
+      color: var(--primary);
+      padding: 7px 0;
+      background: transparent;
+      transition: border-color 0.2s, padding-bottom 0.2s, font-weight 0.2s;
+    }
+
+    .form__field::placeholder {
+      color: transparent;
+    }
+
+    .form__field:placeholder-shown ~ .form__label {
+      font-size: 1.3rem;
+      cursor: text;
+      top: 20px;
+    }
+
+    /* Label */
+    .form__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      color: var(--gray);
+    }
+
+    /* Focused state */
+    .form__field:focus {
+      ~ .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: var(--primary);
+        font-weight: 700;
+      }
+      padding-bottom: 6px;
+      font-weight: 700;
+      border-width: 3px;
+      border-image: linear-gradient(to right, var(--primary), var(--secondary)); /* Gradient border */
+      border-image-slice: 1;
+    }
+
+    /* Reset input */
+    .form__field:required,
+    .form__field:invalid {
+      box-shadow: none;
+    }
+
+    /* Search Button */
+    .search-btn {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.6s ease; /* Slower transition */
+    }
+
+    .search-btn:hover {
+      background-color: var(--secondary);
+    }
+
+    /* Body styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-size: 1.5rem;
+      background-color: var(--white); /* White background */
+      margin: 0; /* Ensure body doesn't have default margin */
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Dictionary Logo and Text -->
+  <div class="dictionary-logo">
+    <img src="images/research.png" alt="Logo" class="logo-image">
+    Dictionary
+  </div>
+
+  <!-- Form Group -->
+  <form action="info.php" method="post">
+    <div class="form__group field">
+      <input type="input" class="form__field" placeholder="Enter a word" name="word" id="word" required />
+      <label for="word" class="form__label">Enter a word</label>
+    </div>
+
+    <!-- Search Button -->
+    <button type="submit" class="search-btn">Search</button>
+  </form>
+
+</body>
+</html>
